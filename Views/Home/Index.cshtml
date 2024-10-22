@@ -1,0 +1,64 @@
+﻿@model st10269378.Models.CustomerProfile
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Allison - ST10269378 - Part 3</title>
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Matthew Allison - ST10269378 - Part 3</h1>
+        
+        <div class="grid">
+            <!-- Customer Profile Form -->
+            <div class="card">
+                <h2 class="card-title">Personal Information</h2>
+                <form asp-action="StoreTableInfo" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="first-name">First name:</label>
+                        <input type="text" id="first-name" name="FirstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last name:</label>
+                        <input type="text" id="last-name" name="LastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone-number">Phone number:</label>
+                        <input type="text" id="phone-number" name="PhoneNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="Email" required>
+                    </div>
+                    <button type="submit">Add Profile</button>
+                </form>
+            </div>
+
+            <!-- File Upload and Order Processing -->
+            <div class="card">
+                <h2 class="card-title">Documents & Orders</h2>
+                <form asp-action="UploadFile" method="post" enctype="multipart/form-data" class="form-group">
+                    <label for="contract-file">Upload Contract</label>
+                    <input type="file" id="contract-file" name="contractFile">
+                    <button type="submit">Submit Contract</button>
+                </form>
+
+                <form asp-action="UploadBlob" method="post" enctype="multipart/form-data" class="form-group">
+                    <label for="image-file">Upload Image</label>
+                    <input type="file" id="image-file" name="imageFile">
+                    <button type="submit">Submit Image</button>
+                </form>
+
+                <form asp-action="ProcessQueueMessage" method="post" class="form-group">
+                    <label for="order-id">Order Processing</label>
+                    <input type="text" id="order-id" name="orderId" placeholder="Enter Order ID" required>
+                    <button type="submit">Process Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
